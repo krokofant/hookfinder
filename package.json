@@ -1,6 +1,6 @@
 {
   "name": "hookfinder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Find hooks when working with Xposed development",
   "author": "krokofant",
   "bin": {
@@ -11,6 +11,12 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "xposed",
+    "smali",
+    "hooking",
+    "android"
   ],
   "license": "LGPL-3.0",
   "main": "dist/cli.js",
