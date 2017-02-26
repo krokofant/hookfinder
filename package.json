@@ -1,0 +1,38 @@
+{
+  "name": "hookfinder",
+  "version": "0.0.1",
+  "description": "Find hooks when working with Xposed development",
+  "author": "krokofant",
+  "bin": {
+    "hookfinder": "./dist/cli.js"
+  },
+  "engines": {
+    "node": ">=7.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "LGPL-3.0",
+  "main": "dist/cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krokofant/hookfinder.git"
+  },
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "standard": {
+    "ignore": [
+      "lib/**.js"
+    ]
+  },
+  "dependencies": {
+    "chalk": "1.1.3"
+  },
+  "devDependencies": {
+    "rollup": "0.41.4",
+    "rollup-plugin-commonjs": "7.0.0",
+    "rollup-plugin-node-resolve": "2.0.0",
+    "standard": "8.6.0"
+  }
+}
