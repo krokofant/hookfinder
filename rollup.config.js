@@ -1,3 +1,4 @@
+import async from 'rollup-plugin-async'
 import commonjs from 'rollup-plugin-commonjs'
 import nodeResolve from 'rollup-plugin-node-resolve'
 
@@ -29,6 +30,7 @@ export default {
       preferBuiltins: true  // Default: true
 
     }),
-    commonjs()
+    commonjs(),
+    async()
   ]
 }
