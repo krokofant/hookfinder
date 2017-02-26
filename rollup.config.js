@@ -4,6 +4,7 @@ import nodeResolve from 'rollup-plugin-node-resolve'
 export default {
   entry: 'src/cli.js',
   dest: 'dist/cli.js',
+  banner: '#!/usr/bin/env node',
   format: 'cjs',
   external: ['fs', 'path', 'chalk'],
   plugins: [
