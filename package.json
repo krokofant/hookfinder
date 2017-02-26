@@ -27,12 +27,14 @@
     ]
   },
   "dependencies": {
-    "chalk": "1.1.3"
+    "chalk": "1.1.3",
+    "commander": "2.9.0"
   },
   "devDependencies": {
     "rollup": "0.41.4",
     "rollup-plugin-async": "1.2.0",
     "rollup-plugin-commonjs": "7.0.0",
+    "rollup-plugin-json": "2.1.0",
     "rollup-plugin-node-resolve": "2.0.0",
     "standard": "8.6.0"
   }

@@ -2,19 +2,17 @@ import fs from 'fs'
 import {join} from 'path'
 import {yellow} from 'chalk'
 
-const {PACKAGE_BASE, targets} = require(join(process.cwd(), 'hookfinder.settings'))
-
 export default class Hookfinder {
   constructor (options = {}) {
+    this.targets = options.targets
     this.basefolder = options.basefolder
   }
 
   async start () {
-    const base = join(this.basefolder, PACKAGE_BASE)
-    const result = await Promise.all(Object.keys(targets).map(async classPath => {
-      const filePath = join(base, classPath.replace(/\./g, '/') + '.smali')
+    const result = await Promise.all(Object.keys(this.targets).map(async classPath => {
+      const filePath = join(this.basefolder, classPath.replace(/\./g, '/') + '.smali')
       const source = await this.readFile(filePath)
-      const methods = (targets[classPath].methods || []).map(method => {
+      const methods = (this.targets[classPath].methods || []).map(method => {
         let implementations = source
                     // match entire method
                     .match(new RegExp(method.filter.source + /(.|\n|\r)*?\.end method/.source, 'g'))
@@ -31,7 +29,7 @@ export default class Hookfinder {
           implementations: implementations
         }
       })
-      const fields = (targets[classPath].fields || []).map(field => {
+      const fields = (this.targets[classPath].fields || []).map(field => {
         let fieldNames = source.match(field.filter)
                     .map(smali => this.getCapture(smali, field.filter))
         return {
