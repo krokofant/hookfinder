@@ -8,7 +8,7 @@ export default {
   dest: 'dist/cli.js',
   banner: '#!/usr/bin/env node',
   format: 'cjs',
-  external: ['fs', 'path', 'chalk'],
+  external: ['fs', 'path', 'chalk', 'jsonfile', 'comment-json'],
   plugins: [
     nodeResolve({
       // use "module" field for ES6 module if possible
