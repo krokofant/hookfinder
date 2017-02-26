@@ -1,13 +1,13 @@
 {
   "name": "hookfinder",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Find hooks when working with Xposed development",
   "author": "krokofant",
   "bin": {
     "hookfinder": "./dist/cli.js"
   },
   "engines": {
-    "node": ">=7.6"
+    "node": ">=6.10"
   },
   "files": [
     "dist"
