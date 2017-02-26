@@ -1,6 +1,6 @@
 {
   "name": "hookfinder",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Find hooks when working with Xposed development",
   "author": "krokofant",
   "bin": {
