@@ -1,18 +1,10 @@
 const PACKAGE_BASE = 'smali/com/jodelapp/jodelandroidv3'
 
 const targets = {
-  'utilities.UniqueDeviceIdentifier': {
-    methods: [
-      {
-        name: 'getUDI',
-        filter: /\.method public (?!getValue)(\w+)\(\)Ljava\/lang\/String;/g
-      }
-    ]
-  },
   'model.Storage': {
     methods: [
       {
-        name: 'UnlockFeatures',
+        name: 'Method_BetaHook_UnlockFeatures',
         filter: /\.method public (\w+)\(Ljava\/lang\/String;\)Z/g,
         implementationFilter: /features/g
       }
@@ -21,7 +13,7 @@ const targets = {
   'view.adapter.PostDetailRecyclerAdapter': {
     methods: [
       {
-        name: 'TrackPostsMethod',
+        name: 'Method_PostStuff_TrackPostsMethod',
         filter: /\.method public (\w+)\(Lcom\/jodelapp\/jodelandroidv3\/view\/adapter\/PostDetailRecyclerAdapter\$PostViewHolder;I\)V/g
       }
     ]
@@ -29,19 +21,27 @@ const targets = {
   'features.mymenu.MyMenuPresenter': {
     methods: [
       {
-        name: 'AddEntriesMethod',
+        name: 'Method_Settings_AddEntriesMethod',
         filter: /\.method private (\w+)\(\)Ljava\/util\/List;/g
       },
       {
-        name: 'HandleClickEventsMethod',
+        name: 'Method_Settings_HandleClickEventsMethod',
         filter: /\.method public (\w+)\(Lcom\/jodelapp\/jodelandroidv3\/view\/MyMenuItem;\)V/g
+      }
+    ]
+  },
+  'utilities.UniqueDeviceIdentifier': {
+    methods: [
+      {
+        name: 'Method_UDI_GetUdiMethod',
+        filter: /\.method public (?!getValue)(\w+)\(\)Ljava\/lang\/String;/g
       }
     ]
   },
   'view.gesture.JodelGestureListener': {
     fields: [
       {
-        name: 'GestureListener_Post',
+        name: 'Field_JodelGestureListener_Post',
         filter: /\.field protected (\w+):Lcom\/jodelapp\/jodelandroidv3\/api\/model\/Post;/g
       }
     ]
