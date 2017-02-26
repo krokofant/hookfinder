@@ -1,11 +1,13 @@
 import fs from 'fs'
 import {join} from 'path'
+import jsonfile from 'jsonfile'
 import {yellow} from 'chalk'
 
 export default class Hookfinder {
   constructor (options = {}) {
     this.targets = options.targets
     this.basefolder = options.basefolder
+    this.saveReport = options.saveReport
   }
 
   async start () {
@@ -62,10 +64,23 @@ export default class Hookfinder {
       }
       console.log()
     })
+
+    if (this.saveReport) {
+      this.writeReport(result)
+    }
   }
 
   getCapture (source, regex) {
     return source.match(new RegExp(regex.source))[1]
+  }
+
+  writeReport (data) {
+    jsonfile.writeFile(join(process.cwd(), this.saveReport), data, {spaces: 2}, function (err) {
+      if (err) {
+        console.error('Failed to write report')
+        throw err
+      }
+    })
   }
 
   readFile (filePath) {

@@ -25,7 +25,8 @@ cmd
     }
     new Hookfinder({
       basefolder: basefolder,
-      targets
+      targets,
+      saveReport: cmd.save
     }).start()
       .catch(err => {
         console.error(err)
